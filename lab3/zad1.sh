@@ -23,4 +23,11 @@
 # jeśli jakikolwiek plik o nazwie `pierwszy` już istnieje w `ddd`.
 #
 
+if [ ! -e ddd/pierwszy ]; then
+
+	ln aaa/podstawa ddd/pierwszy
+	echo "dodano powiązanie twarde"
+else
+	echo "plik pierwszy już istnieje"
+fi
 

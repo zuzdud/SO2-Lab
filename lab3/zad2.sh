@@ -24,4 +24,9 @@
 # jeśli jakikolwiek plik o nazwie `drugi` już istnieje w `ddd`.
 #
 
-
+if [ ! -e ddd/drugi ]; then
+	ln --symbolic aaa/podstawa ddd/drugi
+	echo "stworzono dowiązanie symboliczne"
+else
+	echo "plik drugi już istnieje"
+fi
