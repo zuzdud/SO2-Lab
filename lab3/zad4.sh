@@ -24,4 +24,13 @@
 # dodatkowych plików/dowiązań wewnętrznych.
 #
 
+for dir in aaa bbb ccc; do
+	if [ ! -e "ddd/$dir" ]; then
+		ln -s "../$dir" "ddd/$dir"
+		echo "Utworzono dowiązanie ddd/$dir"
+	else
+		echo "pomijam ddd/$dir bo istnieje"
+	fi
+done
+
 

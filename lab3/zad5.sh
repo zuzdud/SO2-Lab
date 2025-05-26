@@ -24,4 +24,14 @@
 # Nie wyświetlać nic ponadto!
 #
 
+find ccc -type l | while read -r file; do
+	linkpath="$(readlink "$file")"
+
+	if [ ! -e "$linkpath" ]; then 
+		echo "$linkpath"
+
+
+	fi
+done
+
 

@@ -24,4 +24,15 @@
 # upewnić się, że nie zmienimy żadnych istniejących plików w `ddd`.
 #
 
-
+find aaa -type f -executable | while read -r file; do
+	filename="$(basename "$file")"
+	
+	if [ -e "ddd/$filename" ] || [ -L "ddd/$filename" ]; then
+		
+		echo "plik $filename już istnieje w ddd"
+	else
+		echo "plik $filename nie istnieje w ddd"
+		ln -s "$file" "ddd/$filename"
+		echo "stworzono dowiązanie do $file"
+	fi
+done
