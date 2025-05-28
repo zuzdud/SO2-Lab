@@ -24,4 +24,11 @@
 # względem katalogu domowego bieżącego użytkownika (zmienna ${HOME}).
 #
 
+# odczytujemy wszystkie pliki l czyli dowiązaniowe
+find ccc -type l | while read -r file; do
+
+	if [ -e "$file" ]; then 
+		realpath --relative-to=${HOME} "$(realpath "$file")"
+	fi
+done
 
