@@ -25,4 +25,13 @@
 # przez dowiązanie nie ma dla nas znaczenia.
 #
 
+> ddd/linki
+
+find bbb -type l | while read -r symlink; do
+	target=$(readlink "$symlink")
+
+	if [[ "$target" = /* ]]; then
+		echo "$(realpath -m "$target")" >> ddd/linki
+	fi
+done
 

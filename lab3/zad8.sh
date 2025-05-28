@@ -26,4 +26,17 @@
 # (na przykład: bravo:../aaa/bravo).
 #
 
+find ccc -type l | while read -r symlink; do
+	target="$(readlink "$symlink")"
+	name="$(basename "$symlink")"
+
+	if [ ! -e "$symlink" ]; then
+
+		if [ -e "aaa/$(basename "$target")" ]; then
+			echo "$name:../$target"
+		elif [ -e "bbb/$(basename "$target")" ]; then
+                        echo "$name:../$target"
+		fi
+	fi
+done
 
