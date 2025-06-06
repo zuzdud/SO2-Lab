@@ -26,3 +26,5 @@
 # (każda nazwa w nowej linii).
 #
 
+find "linux-5.11.13" -name "testing" -prune -o -name "*.h" -size 0 -printf "%f\n"
+
